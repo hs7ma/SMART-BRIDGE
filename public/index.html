@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الجسر الذكي - لوحة التحكم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>&#x1F309; الجسر الذكي</h1>
+    <div>
+      <span id="connDot" class="connection-dot"></span>
+      <span id="connText" style="color:var(--muted)">غير متصل</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="card-title">حالة الجسر</div>
+      <div class="card-value">
+        <span id="bridgeStatus" class="status-badge open">مفتوح</span>
+      </div>
+      <div class="ir-dots" style="margin-top:14px">
+        <div class="ir-item">
+          <span class="ir-dot" id="irEntryDot"></span>
+          <span style="font-size:0.85rem;color:var(--muted)">حساس الدخول</span>
+        </div>
+        <div class="ir-item">
+          <span class="ir-dot" id="irExitDot"></span>
+          <span style="font-size:0.85rem;color:var(--muted)">حساس الخروج</span>
+        </div>
+      </div>
+      <div id="crowdedBadge" style="margin-top:10px;font-size:0.85rem;color:var(--yellow);display:none">
+        &#x26A0; ازدحام - الجسر مغلق تلقائياً
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">مستوى الإضاءة</div>
+      <div class="card-value" id="lightValue">0</div>
+      <div class="light-bar-bg">
+        <div class="light-bar-fill" id="lightBar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">حساس الاهتزاز</div>
+      <div class="vibration-indicator">
+        <span class="vib-icon" id="vibIcon">&#x1F4E1;</span>
+        <span id="vibText" style="font-size:1.2rem">طبيعي</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">التحكم بالجسر</div>
+      <div class="controls">
+        <button class="btn btn-auto active" id="btnAuto" onclick="setMode('auto')">
+          وضع تلقائي
+        </button>
+        <button class="btn btn-open" id="btnOpen" onclick="setMode('open')">
+          فتح الجسر
+        </button>
+        <button class="btn btn-close" id="btnClose" onclick="setMode('close')">
+          إغلاق الجسر
+        </button>
+      </div>
+    </div>
+
+    <div class="card alerts-log">
+      <div class="card-title">سجل التنبيهات</div>
+      <div class="alerts-list" id="alertsList">
+        <div class="alert-item">
+          <span style="color:var(--muted)">لا توجد تنبيهات بعد</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
